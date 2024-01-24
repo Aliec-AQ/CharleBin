@@ -50,7 +50,7 @@ class Configuration
             'info'                     => 'More information on the <a href=\'https://privatebin.info/\'>project page</a>.',
             'notice'                   => '',
             'languageselection'        => false,
-            'languagedefault'          => '',
+            'languagedefault'          => 'fr',
             'urlshortener'             => '',
             'qrcode'                   => true,
             'icon'                     => 'identicon',
@@ -65,6 +65,7 @@ class Configuration
         'expire_options' => array(
             '5min'   => 300,
             '10min'  => 600,
+	    '30min'  => 1800,
             '1hour'  => 3600,
             '1day'   => 86400,
             '1week'  => 604800,
@@ -132,7 +133,7 @@ class Configuration
             if (!array_key_exists($section, $config) || count($config[$section]) == 0) {
                 $this->_configuration[$section] = $values;
                 if (array_key_exists('dir', $this->_configuration[$section])) {
-                    $this->_configuration[$section]['dir'] = PATH . $this->_configuration[$section]['dir'];
+                    $this->_OAconfiguration[$section]['dir'] = PATH . $this->_configuration[$section]['dir'];
                 }
                 continue;
             }
